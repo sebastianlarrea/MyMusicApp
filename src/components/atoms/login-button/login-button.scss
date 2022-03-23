@@ -1,0 +1,35 @@
+
+$gradient-third: #2f8c56;
+
+.login-button {
+    width: 200px;
+    height: 60px;
+    padding: 0 10px;
+    text-decoration: none;
+    color: white;
+    border-radius: 70px; 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: $gradient-third;
+
+    &:hover {
+        color: $gradient-third;
+        fill: $gradient-third;
+        background-color: black;
+        box-sizing: border-box;
+        border: 1px solid $gradient-third;
+    }
+
+    &__icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    &__text {
+        cursor: pointer;
+        font-family: 'Majorant-Regular';
+        user-select: none;
+    }
+}
