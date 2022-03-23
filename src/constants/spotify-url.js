@@ -8,6 +8,6 @@ const SCOPES = [
     'user-library-modify',
     'user-read-recently-played'
 ]
-const REDIRECT_URI = 'http://localhost:3000'
+const REDIRECT_URI = 'http://localhost:3000/home'
 
 export const LOGIN_URL = `https://accounts.spotify.com/es-ES/authorize?client_id=${CLIENT_ID}&scope=${SCOPES}&redirect_uri=${REDIRECT_URI}&response_type=token&show_dialog=true`

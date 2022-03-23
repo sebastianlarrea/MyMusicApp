@@ -1,0 +1,29 @@
+$gradient-second: #3fa468;
+
+.menu-option {
+
+    margin: 50px;
+    text-decoration: none;
+    font-family: 'Majorant-Bold';
+    font-size: 17px;
+    color: white;
+    user-select: none;
+
+    &:hover {
+        color: $gradient-second;
+    }
+
+    &--select {
+        position: relative;
+
+        &::after {
+            background-color: $gradient-second;
+            content: '';
+            width: 100%;
+            height: 20%;
+            position: absolute;
+            bottom: -7px;
+            left: 0;
+        }
+    }
+}

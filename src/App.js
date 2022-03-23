@@ -1,9 +1,12 @@
+import { BrowserRouter as Router } from 'react-router-dom'
+import RouterComponent from './routes/router-component'
 import './App.css'
-import LoginTemplate from './components/templates/login-template/login-template'
 
 function App() {
     return (
-      <LoginTemplate title='MusicApp' />
+        <Router>
+            <RouterComponent />
+        </Router>
     )
 }
 
