@@ -1,5 +1,11 @@
 .menu-nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    display: none;
+}
+
+@media (min-width: 700px) {
+    .menu-nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
 }

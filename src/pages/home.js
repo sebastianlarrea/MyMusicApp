@@ -7,8 +7,8 @@ const Home = () => {
 
     useEffect(() => {
         setAccessToken()
-        if(!localStorage.getItem('USER_NAME')) getUserName()
-    }, [])
+        if(!userName) getUserName()
+    }, [userName])
     const setAccessToken = () => {
         if (window.location.hash) {
             localStorage.setItem(

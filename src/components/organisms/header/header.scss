@@ -3,9 +3,10 @@ $gradient-second: #3fa468;
 .main-header {
     width: 100vw;
     height: 80px;
+    padding: 0 30px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     fill: white;
     background-color: black;
@@ -32,13 +33,37 @@ $gradient-second: #3fa468;
         }
     }
 
-    &__logout {
+    &__menu-bar {
         width: 30px;
         height: 30px;
         cursor: pointer;
 
         &:hover {
             fill: $gradient-second;
+        }
+    }
+
+    &__logout {
+        display: none;
+    }
+}
+
+@media (min-width: 700px) {
+    .main-header {
+        justify-content: space-around;
+
+        &__menu-bar {
+            display: none;
+        }
+        &__logout {
+            width: 30px;
+            height: 30px;
+            display: inline;
+            cursor: pointer;
+    
+            &:hover {
+                fill: $gradient-second;
+            }
         }
     }
 }
