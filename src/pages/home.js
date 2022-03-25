@@ -5,12 +5,22 @@ import ListTemplate from '../components/templates/list-template/list-template'
 const Home = () => {
     const [userName, setuserName] = useState(localStorage.getItem('USER_NAME'))
     const [recentlyPlayed, setRecentlyPlayed] = useState([])
+    const [likedSongs, setLikedSongs] = useState([])
 
     useEffect(() => {
         if (window.location.hash) setAccessToken()
         if (!userName) getUserName('')
-        getRecentlyPlayed('player/recently-played')
+        getRecentlyPlayed('player/recently-played?limit=50')
     }, [userName])
+
+    useEffect(() => {
+        const likedSongs = recentlyPlayed.map(song => {
+            return song.track.id
+        })
+        getSpotifyData(`tracks/contains?ids=${likedSongs}`).then(response => {
+            setLikedSongs(response?.data)
+        })
+    }, [recentlyPlayed])
 
     const setAccessToken = () => {
         localStorage.setItem(
@@ -36,6 +46,7 @@ const Home = () => {
         <ListTemplate
             user={userName}
             data={recentlyPlayed}
+            likedSongs={likedSongs}
             title="Recently Played"
             type="track"
         />

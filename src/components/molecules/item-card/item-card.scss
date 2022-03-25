@@ -1,3 +1,5 @@
+$gradient-second: #3fa468;
+
 .card {
     margin: auto;
     width: 500px;
@@ -12,9 +14,9 @@
         display: grid;
         grid-template-columns: 1fr 4fr 1fr;
         grid-gap: 10px;
-        -webkit-box-shadow: 3px 5px 0px -1px rgba(0,0,0,0.63);
-        -moz-box-shadow: 3px 5px 0px -1px rgba(0,0,0,0.63);
-        box-shadow: 3px 5px 0px -1px rgba(0,0,0,0.63);
+        -webkit-box-shadow: 3px 5px 0px -1px rgba(0, 0, 0, 0.63);
+        -moz-box-shadow: 3px 5px 0px -1px rgba(0, 0, 0, 0.63);
+        box-shadow: 3px 5px 0px -1px rgba(0, 0, 0, 0.63);
     }
 
     &__name-box {
@@ -43,7 +45,11 @@
 
         &:hover {
             cursor: pointer;
-            fill: red;
+            fill: $gradient-second;
+        }
+
+        &--active {
+            fill: $gradient-second;
         }
     }
 
