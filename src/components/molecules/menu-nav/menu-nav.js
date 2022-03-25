@@ -6,10 +6,10 @@ const MenuNav = ({menuOptions}) => {
 
     return (
         <nav className="menu-nav">
-            {menuOptions.map(menuOption => {
+            {menuOptions.map((menuOption, index) => {
                 const currentPath = window.location.href.split('/')
                 const isSelected = currentPath[currentPath.length - 1] === menuOption.href.slice(1)
-                return <MenuOption className="menu-nav__option" optionText={menuOption.text} optionHref={menuOption.href} isSelected={isSelected}/>
+                return <MenuOption key={index } className="menu-nav__option" optionText={menuOption.text} optionHref={menuOption.href} isSelected={isSelected}/>
             })}
         </nav>
     )

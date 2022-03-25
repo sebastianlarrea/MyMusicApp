@@ -1,0 +1,68 @@
+.card {
+    margin: auto;
+    width: 500px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__info {
+        margin: 30px;
+        padding: 30px;
+        display: grid;
+        grid-template-columns: 1fr 4fr 1fr;
+        grid-gap: 10px;
+        -webkit-box-shadow: 3px 5px 0px -1px rgba(0,0,0,0.63);
+        -moz-box-shadow: 3px 5px 0px -1px rgba(0,0,0,0.63);
+        box-shadow: 3px 5px 0px -1px rgba(0,0,0,0.63);
+    }
+
+    &__name-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-align: left;
+        font-family: 'Majorant-Bold';
+    }
+
+    &__artists {
+        font-family: 'Majorant-Regular';
+    }
+
+    &__like-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__like-icon {
+        width: 23px;
+        height: 23px;
+
+        &:hover {
+            cursor: pointer;
+            fill: red;
+        }
+    }
+
+    &__songs-count {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Majorant-Regular';
+    }
+}
+
+@media (min-width: 900px) {
+    .card {
+        width: 800px;
+    }
+}
+
+@media (min-width: 700px) and (max-width: 900px) {
+    .card {
+        width: 600px;
+    }
+}
