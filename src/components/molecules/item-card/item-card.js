@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { ReactComponent as HeartLikeIcon } from '../../../assets/icons/heart-liked.svg'
+import { deleteSpotifyTrack, addSpotifyTrack } from '../../../services/spotify'
 import './item-card.scss'
 
 const ItemCard = ({ cardItem, type, isLiked }) => {
     const [classLikeIcon, setClassLikeIcon] = useState('card__like-icon')
+    const id = cardItem?.track?.id
     const imageUrl =
         type === 'track'
             ? cardItem?.track?.album?.images[2].url
@@ -14,11 +16,24 @@ const ItemCard = ({ cardItem, type, isLiked }) => {
             return artist.name
         })
         .join(', ')
+
     useEffect(() => {
         isLiked || isLiked === undefined
             ? setClassLikeIcon('card__like-icon card__like-icon--active')
             : setClassLikeIcon('card__like-icon')
     }, [isLiked])
+
+    const handleLike = () => { 
+        console.log(isLiked)
+        isLiked || isLiked === undefined
+            ? deleteSpotifyTrack(id).then(() => {
+                  window.location.replace('')
+              })
+            : addSpotifyTrack(id).then(() => {
+                  window.location.replace('')
+              })
+    }
+
     return (
         <section className="card__info">
             <section class="card__image-box">
@@ -30,7 +45,10 @@ const ItemCard = ({ cardItem, type, isLiked }) => {
             </section>
             {type === 'track' ? (
                 <section className="card__like-box">
-                    <HeartLikeIcon className={classLikeIcon} />
+                    <HeartLikeIcon
+                        className={classLikeIcon}
+                        onClick={handleLike}
+                    />
                 </section>
             ) : (
                 <section className="card__songs-count">
