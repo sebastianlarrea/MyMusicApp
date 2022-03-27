@@ -23,9 +23,15 @@ const Home = () => {
     }, [recentlyPlayed])
 
     const setAccessToken = () => {
+        const accessToken = window.location.hash.split('=')[1].split('&')[0]
+        const expireTimestamp = Number(Date.now()) + Number(window.location.hash.split('=').pop())*1000
         localStorage.setItem(
             'ACCESS_TOKEN',
-            window.location.hash.split('=')[1].split('&')[0]
+            accessToken
+        )
+        localStorage.setItem(
+            'EXPIRE_DATE',
+            expireTimestamp
         )
         window.location.replace('')
     }

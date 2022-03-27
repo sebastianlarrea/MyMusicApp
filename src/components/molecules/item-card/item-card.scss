@@ -19,18 +19,43 @@ $gradient-second: #3fa468;
         box-shadow: 3px 5px 0px -1px rgba(0, 0, 0, 0.63);
     }
 
+    &__image-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     &__name-box {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        white-space: nowrap;
-        overflow: hidden;
         text-align: left;
         font-family: 'Majorant-Bold';
     }
 
+    &__name {
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+
+        &::selection {
+            background-color: $gradient-second;
+            color: white;
+        }
+    }
+
     &__artists {
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
         font-family: 'Majorant-Regular';
+
+        &::selection {
+            background-color: $gradient-second;
+            color: white;
+        }
     }
 
     &__like-box {
@@ -50,6 +75,10 @@ $gradient-second: #3fa468;
 
         &--active {
             fill: $gradient-second;
+
+            &:hover {
+                fill: black;
+            }
         }
     }
 
@@ -57,6 +86,7 @@ $gradient-second: #3fa468;
         display: flex;
         justify-content: center;
         align-items: center;
+        user-select: none;
         font-family: 'Majorant-Regular';
     }
 }
