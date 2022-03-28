@@ -2,7 +2,7 @@ $gradient-second: #3fa468;
 
 .card {
     margin: auto;
-    width: 500px;
+    width: 320px;
     margin-top: 30px;
     display: flex;
     flex-direction: column;
@@ -100,5 +100,11 @@ $gradient-second: #3fa468;
 @media (min-width: 700px) and (max-width: 900px) {
     .card {
         width: 600px;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 700px) {
+    .card {
+        width: 400px;
     }
 }

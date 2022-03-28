@@ -23,9 +23,8 @@ const ItemCard = ({ cardItem, type, isLiked }) => {
             : setClassLikeIcon('card__like-icon')
     }, [isLiked])
 
-    const handleLike = () => { 
-        console.log(isLiked)
-        isLiked || isLiked === undefined
+    const handleLike = () => {
+            isLiked || isLiked === undefined
             ? deleteSpotifyTrack(id).then(() => {
                   window.location.replace('')
               })
