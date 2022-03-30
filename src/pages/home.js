@@ -52,13 +52,13 @@ const Home = () => {
     }
 
     return (
-            <ListTemplate
-                user={userName}
-                data={recentlyPlayed}
-                likedSongs={likedSongs}
-                title={stringConstans.HOME_TITLE}
-                type={stringConstans.TRACK_TYPE}
-            />
+        <ListTemplate
+            user={userName}
+            data={recentlyPlayed}
+            likedSongs={likedSongs}
+            title={stringConstans.HOME_TITLE}
+            type={stringConstans.TRACK_TYPE}
+        />
     )
 }
 export default Home

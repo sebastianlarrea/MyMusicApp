@@ -13,11 +13,12 @@ const ItemCard = ({ cardItem, type, isLiked }) => {
             ? cardItem?.track?.album?.images[2].url
             : cardItem?.album?.images[2].url
     const name = cardItem?.[type]?.name
+    const spanishFormat = new Intl.ListFormat('es')
     const artists = cardItem?.[type]?.artists
-        .map(artist => {
-            return artist.name
-        })
-        .join(', ')
+    .map(artist => {
+        return artist.name
+    })
+    const artistsFormated = spanishFormat.format(artists)
 
     useEffect(() => {
         isLiked || isLiked === undefined
@@ -42,7 +43,7 @@ const ItemCard = ({ cardItem, type, isLiked }) => {
             </section>
             <section className="card__name-box">
                 <p className="card__name">{name}</p>
-                <p className="card__artists">{artists}</p>
+                <p className="card__artists">{artistsFormated}</p>
             </section>
             {type === stringConstans.TRACK_TYPE ? (
                 <section className="card__like-box">
