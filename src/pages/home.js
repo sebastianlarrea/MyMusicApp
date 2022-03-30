@@ -52,7 +52,6 @@ const Home = () => {
     }
 
     return (
-        recentlyPlayed && (
             <ListTemplate
                 user={userName}
                 data={recentlyPlayed}
@@ -60,7 +59,6 @@ const Home = () => {
                 title={stringConstans.HOME_TITLE}
                 type={stringConstans.TRACK_TYPE}
             />
-        )
     )
 }
 export default Home

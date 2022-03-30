@@ -5,7 +5,7 @@ import stringConstans from '../constants/string-constants'
 import ListTemplate from '../components/templates/list-template/list-template'
 
 const Favorites = () => {
-    const [favoriteSongs, setFavoriteSongs] = useState([])
+    const [favoriteSongs, setFavoriteSongs] = useState(null)
     const user = localStorage.getItem('USER_NAME')
 
     useEffect(() => {

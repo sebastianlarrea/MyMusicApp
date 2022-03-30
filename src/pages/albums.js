@@ -5,7 +5,7 @@ import stringConstans from '../constants/string-constants'
 import ListTemplate from '../components/templates/list-template/list-template'
 
 const Albums = () => {
-    const [yourAlbums, setYourAlbums] = useState([])
+    const [yourAlbums, setYourAlbums] = useState(null)
     const user = localStorage.getItem('USER_NAME')
     useEffect(() => {
         getFavoriteSongs(spotifyConstants.ALBUMS_URL)
