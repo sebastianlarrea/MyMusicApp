@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { getSpotifyData } from '../services/spotify'
+import spotifyService from '../services/spotify'
+import spotifyConstants from '../constants/spotify-url'
+import stringConstans from '../constants/string-constants'
 import ListTemplate from '../components/templates/list-template/list-template'
 
 const Favorites = () => {
@@ -7,11 +9,11 @@ const Favorites = () => {
     const user = localStorage.getItem('USER_NAME')
 
     useEffect(() => {
-        getFavoriteSongs('tracks?limit=50')
+        getFavoriteSongs(spotifyConstants.FAVS_URL)
     }, [])
 
     const getFavoriteSongs = path => {
-        getSpotifyData(path).then(response => {
+        spotifyService.getData(path).then(response => {
             setFavoriteSongs(response?.data?.items)
         })
     }
@@ -20,8 +22,8 @@ const Favorites = () => {
         <ListTemplate
             user={user}
             data={favoriteSongs}
-            title="Favorite Songs"
-            type="track"
+            title={stringConstans.FAVS_TITLE}
+            type={stringConstans.TRACK_TYPE}
         />
     )
 }

@@ -1,4 +1,4 @@
-$gradient-second: #3fa468;
+@import '../../../styles/variables.scss';
 
 .card {
     margin: auto;
@@ -23,6 +23,10 @@ $gradient-second: #3fa468;
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    &__image::selection {
+        background-color: $gradient-second;
     }
 
     &__name-box {

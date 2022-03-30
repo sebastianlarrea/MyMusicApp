@@ -2,6 +2,7 @@ import React from 'react'
 import { ReactComponent as MusicIcon } from '../../../assets/icons/music-solid.svg'
 import { ReactComponent as MenuBarIcon } from '../../../assets/icons/bars-solid.svg'
 import { ReactComponent as LogoutIcon } from '../../../assets/icons/right-from-bracket-solid.svg'
+import stringConstans from '../../../constants/string-constants'
 import MenuNav from '../../molecules/menu-nav/menu-nav'
 import './header.scss'
 
@@ -9,16 +10,16 @@ const Header = ({userName}) => {
 
     const menuOptions = [
         {
-            text: 'Home',
-            href: '/home'
+            text: stringConstans.HOME_NAV,
+            href: stringConstans.HOME_PATH
         },
         {
-            text: 'Favs',
-            href: '/favs'
+            text: stringConstans.FAVS_NAV,
+            href: stringConstans.FAVS_PATH
         },
         {
-            text: 'Albums',
-            href: '/albums'
+            text: stringConstans.ALBUM_NAV,
+            href: stringConstans.ALBUM_PATH
         }
     ]
     

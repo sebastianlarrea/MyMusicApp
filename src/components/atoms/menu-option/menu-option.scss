@@ -1,4 +1,4 @@
-$gradient-second: #3fa468;
+@import '../../../styles/variables.scss';
 
 .menu-option {
     display: none;
@@ -18,7 +18,7 @@ $gradient-second: #3fa468;
             color: $gradient-second;
         }
     
-        &--select {
+        &--selected {
             position: relative;
     
             &::after {

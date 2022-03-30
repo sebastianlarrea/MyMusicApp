@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import { getSpotifyData } from '../services/spotify'
+import spotifyService from '../services/spotify'
+import spotifyConstants from '../constants/spotify-url'
+import stringConstans from '../constants/string-constants'
 import ListTemplate from '../components/templates/list-template/list-template'
 
 const Albums = () => {
     const [yourAlbums, setYourAlbums] = useState([])
     const user = localStorage.getItem('USER_NAME')
     useEffect(() => {
-        getFavoriteSongs('albums?limit=50')
+        getFavoriteSongs(spotifyConstants.ALBUMS_URL)
     }, [])
     const getFavoriteSongs = path => {
-        getSpotifyData(path).then(response => {
+        spotifyService.getData(path).then(response => {
             setYourAlbums(response?.data?.items)
         })
     }
@@ -18,8 +20,8 @@ const Albums = () => {
         <ListTemplate
             user={user}
             data={yourAlbums}
-            title="Your Albums"
-            type="album"
+            title={stringConstans.ALBUM_TITLE}
+            type={stringConstans.ALBUM_TYPE}
         />
     )
 }
