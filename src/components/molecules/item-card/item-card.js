@@ -38,7 +38,7 @@ const ItemCard = ({ cardItem, type, isLiked }) => {
 
     return (
         <section className="card__info">
-            <section class="card__image-box">
+            <section className="card__image-box">
                 <img className="card__image" src={imageUrl} alt={name} />
             </section>
             <section className="card__name-box">
