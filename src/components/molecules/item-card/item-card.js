@@ -6,6 +6,7 @@ import './item-card.scss'
 import stringConstans from '../../../constants/string-constants'
 
 const ItemCard = ({ cardItem, type, isLiked }) => {
+    
     const [classLikeIcon, setClassLikeIcon] = useState(spotifyConstants.LIKE_CLASS)
     const id = cardItem?.track?.id
     const imageUrl =

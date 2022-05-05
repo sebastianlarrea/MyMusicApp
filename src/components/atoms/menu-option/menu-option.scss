@@ -1,26 +1,29 @@
 @import '../../../styles/variables.scss';
 
 .menu-option {
-    display: none;
+    display: inline;
+    margin: 30px;
+    text-decoration: none;
+    font-family: 'Majorant-Bold';
+    font-size: 17px;
+    color: white;
+    user-select: none;
+
+    &:hover {
+        color: $gradient-second;
+    }
+
+    &--selected {
+        position: relative;
+        color: $gradient-second;
+    }
 }
 
 @media (min-width: 700px) {
     .menu-option {
-        display: inline;
-        margin: 30px;
-        text-decoration: none;
-        font-family: 'Majorant-Bold';
-        font-size: 17px;
-        color: white;
-        user-select: none;
-    
-        &:hover {
-            color: $gradient-second;
-        }
-    
         &--selected {
-            position: relative;
-    
+            
+            color: white;
             &::after {
                 background-color: $gradient-second;
                 content: '';

@@ -4,6 +4,12 @@
     display: none;
 }
 
+.menu-column-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 @media (min-width: 700px) {
     .menu-nav {
         display: flex;

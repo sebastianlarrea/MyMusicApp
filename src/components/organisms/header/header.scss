@@ -1,5 +1,36 @@
 @import '../../../styles/variables.scss';
 
+@mixin icons-buttons {
+    width: 30px;
+    height: 30px;
+    fill: white;
+    cursor: pointer;
+
+    &:hover {
+        fill: $gradient-second;
+    }
+}
+
+@mixin user-name {
+    font-family: 'Majorant-Regular';
+    color: white;
+    user-select: none;
+    position: relative;
+
+    &::after {
+        background-color: $gradient-second;
+        content: '';
+        width: 100%;
+        height: 20%;
+        position: absolute;
+        bottom: -7px;
+        left: 0;
+    }
+}
+
+@mixin logout {
+}
+
 .main-header {
     width: 100%;
     height: 80px;
@@ -17,34 +48,68 @@
     }
 
     &__user-name {
-        font-family: 'Majorant-Regular';
-        color: white;
-        user-select: none;
-        position: relative;
-
-        &::after {
-            background-color: $gradient-second;
-            content: '';
-            width: 100%;
-            height: 20%;
-            position: absolute;
-            bottom: -7px;
-            left: 0;
-        }
+        @include user-name;
     }
 
     &__menu-bar {
-        width: 30px;
-        height: 30px;
-        cursor: pointer;
-
-        &:hover {
-            fill: $gradient-second;
-        }
+        @include icons-buttons;
     }
 
     &__logout {
         display: none;
+    }
+}
+
+.menu-column {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    animation: open-menu 0.5s linear forwards;
+    background: black;
+
+    &__close-menu {
+        @include icons-buttons;
+
+        position: relative;
+        top: 25px;
+        right: -200px;
+    }
+
+    &__logout {
+        @include icons-buttons;
+
+        position: relative;
+        top: 25px;
+        right: -125px;
+    }
+
+    &__user-name {
+        @include user-name;
+
+        position: relative;
+        top: 100px;
+        right: -40px;
+
+        &::after {
+            width: 71%;
+        }
+    }
+
+    &__nav {
+
+        position: relative;
+        top: 150px;
+        right: -20px;
+    }
+}
+
+@keyframes open-menu {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 250px;
     }
 }
 
@@ -60,10 +125,14 @@
             height: 30px;
             display: inline;
             cursor: pointer;
-    
+
             &:hover {
                 fill: $gradient-second;
             }
         }
+    }
+
+    .menu-column {
+        display: none;
     }
 }
