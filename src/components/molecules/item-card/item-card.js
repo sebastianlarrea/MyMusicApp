@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { ReactComponent as HeartLikeIcon } from '../../../assets/icons/heart-liked.svg'
 import spotifyService from '../../../services/spotify'
-import spotifyConstants from '../../../constants/string-constants'
 import './item-card.scss'
 import stringConstans from '../../../constants/string-constants'
 
 const ItemCard = ({ cardItem, type, isLiked }) => {
     
-    const [classLikeIcon, setClassLikeIcon] = useState(spotifyConstants.LIKE_CLASS)
-    const id = cardItem?.track?.id
+    const trackId = cardItem?.track?.id
     const imageUrl =
         type === stringConstans.TRACK_TYPE
             ? cardItem?.track?.album?.images[2].url
@@ -21,24 +19,18 @@ const ItemCard = ({ cardItem, type, isLiked }) => {
     })
     const artistsFormated = spanishFormat.format(artists)
 
-    useEffect(() => {
-        isLiked || isLiked === undefined
-            ? setClassLikeIcon(`${spotifyConstants.LIKE_CLASS} ${spotifyConstants.LIKE_ACTIVE_CLASS}`)
-            : setClassLikeIcon(spotifyConstants.LIKE_CLASS)
-    }, [isLiked])
-
     const handleLike = () => {
-        isLiked || isLiked === undefined
-            ? spotifyService.deleteTrack(id).then(() => {
+        isLiked 
+            ? spotifyService.deleteTrack(trackId).then(() => {
                   window.location.replace('')
               })
-            : spotifyService.addTrack(id).then(() => {
+            : spotifyService.addTrack(trackId).then(() => {
                   window.location.replace('')
               })
     }
 
     return (
-        <section className="card__info">
+        <section className="card">
             <section className="card__image-box">
                 <img className="card__image" src={imageUrl} alt={name} />
             </section>
@@ -49,7 +41,11 @@ const ItemCard = ({ cardItem, type, isLiked }) => {
             {type === stringConstans.TRACK_TYPE ? (
                 <section className="card__like-box">
                     <HeartLikeIcon
-                        className={classLikeIcon}
+                        className={
+                            isLiked
+                            ? 'card__like-icon card__like-icon--active'
+                            : 'card__like-icon'
+                        }
                         onClick={handleLike}
                     />
                 </section>

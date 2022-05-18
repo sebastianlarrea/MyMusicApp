@@ -10,14 +10,14 @@ const ListTemplate = props => {
         <div>
             <Header userName={user} />
             <h1 className="page-title">{title}</h1>
-            <section className="card">
+            <section className="card-box">
                 {data ? (
                     data.map((cardItem, index) => {
                         return (
                             <ItemCard
                                 key={index}
                                 cardItem={cardItem}
-                                isLiked={likedSongs && likedSongs[index]}
+                                isLiked={likedSongs?.[index]}
                                 type={type}
                             />
                         )

@@ -6,6 +6,8 @@ import ListTemplate from '../components/templates/list-template/list-template'
 
 const Favorites = () => {
     const [favoriteSongs, setFavoriteSongs] = useState(null)
+    const likedSongs = Array(favoriteSongs?.length).fill(true)
+    console.log(likedSongs)
     const user = localStorage.getItem('USER_NAME')
 
     useEffect(() => {
@@ -13,7 +15,7 @@ const Favorites = () => {
     }, [])
 
     const getFavoriteSongs = path => {
-        spotifyService.getData(path).then(response => {
+        spotifyService.getTrackAlbumOrUserData(path).then(response => {
             setFavoriteSongs(response?.data?.items)
         })
     }
@@ -22,6 +24,7 @@ const Favorites = () => {
         <ListTemplate
             user={user}
             data={favoriteSongs}
+            likedSongs={likedSongs}
             title={stringConstans.FAVS_TITLE}
             type={stringConstans.TRACK_TYPE}
         />

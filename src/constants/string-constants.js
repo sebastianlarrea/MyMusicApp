@@ -1,9 +1,3 @@
-const MENU_CLASS = 'menu-option'
-const MENU_SELECTED_CLASS = 'menu-option--selected'
-
-const LIKE_CLASS = 'card__like-icon'
-const LIKE_ACTIVE_CLASS = 'card__like-icon--active'
-
 const TRACK_TYPE = 'track'
 const ALBUM_TYPE = 'album'
 
@@ -20,10 +14,6 @@ const FAVS_NAV = 'Favs'
 const FAVS_TITLE = 'Favorites Songs'
 
 const stringConstans = {
-    MENU_CLASS,
-    MENU_SELECTED_CLASS,
-    LIKE_CLASS,
-    LIKE_ACTIVE_CLASS,
     TRACK_TYPE,
     ALBUM_TYPE,
     HOME_PATH,

@@ -1,5 +1,5 @@
-import axios from 'axios'
 import { API_URL, HEADERS } from '../constants/api-constants'
+import axios from 'axios'
 
 axios.interceptors.request.use(request => {
     const expireDate = localStorage.getItem('EXPIRE_DATE')
@@ -11,7 +11,7 @@ axios.interceptors.request.use(request => {
 })
 
 const spotifyService = {
-    getData: (path = '') => {
+    getTrackAlbumOrUserData: (path = '') => {
         return axios.get(`${API_URL}${path}`, HEADERS)
     },
 

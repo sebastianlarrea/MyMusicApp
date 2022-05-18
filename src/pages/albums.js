@@ -11,7 +11,7 @@ const Albums = () => {
         getFavoriteSongs(spotifyConstants.ALBUMS_URL)
     }, [])
     const getFavoriteSongs = path => {
-        spotifyService.getData(path).then(response => {
+        spotifyService.getTrackAlbumOrUserData(path).then(response => {
             setYourAlbums(response?.data?.items)
         })
     }

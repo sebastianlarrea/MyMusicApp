@@ -10,18 +10,16 @@ const Home = () => {
     const [likedSongs, setLikedSongs] = useState(null)
 
     useEffect(() => {
-        if (window.location.hash) setAccessToken()
-        if (!userName) getUserName()
-        if (!recentlyPlayed) {
-            getRecentlyPlayed(spotifyConstants.RECENTLY_PLAYED_URL)
-        }
-        const likedSongs =
-            recentlyPlayed &&
-            recentlyPlayed.map(song => {
+        window.location.hash && setAccessToken()
+        !userName && getUserName()
+        !recentlyPlayed && getRecentlyPlayed(spotifyConstants.RECENTLY_PLAYED_URL)
+        
+        const RecentlyPlayedIds =
+            recentlyPlayed?.map(song => {
                 return song.track.id
             })
         spotifyService
-            .getData(`${spotifyConstants.SONG_LIKEDS_URL}${likedSongs}`)
+            .getTrackAlbumOrUserData(`${spotifyConstants.SONG_LIKEDS_URL}${RecentlyPlayedIds}`)
             .then(response => {
                 setLikedSongs(response?.data)
             })
@@ -38,7 +36,7 @@ const Home = () => {
     }
 
     const getUserName = () => {
-        spotifyService.getData().then(response => {
+        spotifyService.getTrackAlbumOrUserData().then(response => {
             const user = response?.data?.display_name.toUpperCase()
             setuserName(user)
             localStorage.setItem('USER_NAME', user)
@@ -46,7 +44,7 @@ const Home = () => {
     }
 
     const getRecentlyPlayed = path => {
-        spotifyService.getData(path).then(response => {
+        spotifyService.getTrackAlbumOrUserData(path).then(response => {
             setRecentlyPlayed(response?.data?.items)
         })
     }
