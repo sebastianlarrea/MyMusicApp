@@ -7,7 +7,7 @@ import './list-template.scss'
 const ListTemplate = props => {
     const { user, data, likedSongs, title, type } = props
     return (
-        <div>
+        <>
             <Header userName={user} />
             <h1 className="page-title">{title}</h1>
             <section className="card-box">
@@ -26,7 +26,7 @@ const ListTemplate = props => {
                     <LoadingSpinner />
                 )}
             </section>
-        </div>
+        </>
     )
 }
 

@@ -4,10 +4,8 @@ import './menu-nav.scss'
 
 const MenuNav = ({menuOptions, isColumn}) => {
 
-    const menuNavClass = isColumn ? "menu-column-nav" : "menu-nav"
-
     return (
-        <nav className={menuNavClass}>
+        <nav className={isColumn ? "menu-column-nav" : "menu-nav"}>
             {menuOptions.map((menuOption, index) => {
                 const currentPath = window.location.href.split('/')
                 const isSelected = currentPath[currentPath.length - 1] === menuOption.href.slice(1)

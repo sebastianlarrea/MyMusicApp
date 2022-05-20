@@ -62,9 +62,9 @@ const Header = ({ userName }) => {
                     />
                     <LogoutIcon className="menu-column__logout" onClick={Logout} />
                     <h3 className="menu-column__user-name">{userName}</h3>
-                    <div className="menu-column__nav">
+                    <nav className="menu-column__nav">
                         <MenuNav isColumn={true} menuOptions={menuOptions} />
-                    </div>
+                    </nav>
                     
                 </aside>
             )}

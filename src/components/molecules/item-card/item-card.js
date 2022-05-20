@@ -30,16 +30,16 @@ const ItemCard = ({ cardItem, type, isLiked }) => {
     }
 
     return (
-        <section className="card">
-            <section className="card__image-box">
+        <div className="card">
+            <div className="card__image-box">
                 <img className="card__image" src={imageUrl} alt={name} />
-            </section>
-            <section className="card__name-box">
+            </div>
+            <div className="card__name-box">
                 <p className="card__name">{name}</p>
                 <p className="card__artists">{artistsFormated}</p>
-            </section>
+            </div>
             {type === stringConstans.TRACK_TYPE ? (
-                <section className="card__like-box">
+                <div className="card__like-box">
                     <HeartLikeIcon
                         className={
                             isLiked
@@ -48,13 +48,13 @@ const ItemCard = ({ cardItem, type, isLiked }) => {
                         }
                         onClick={handleLike}
                     />
-                </section>
+                </div>
             ) : (
-                <section className="card__songs-count">
+                <div className="card__songs-count">
                     <p>{cardItem?.[type]?.tracks?.items.length} Songs</p>
-                </section>
+                </div>
             )}
-        </section>
+        </div>
     )
 }
 
