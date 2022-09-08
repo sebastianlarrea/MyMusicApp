@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import spotifyService from '../services/spotify'
-import spotifyConstants from '../constants/spotify-url'
-import stringConstans from '../constants/string-constants'
-import ListTemplate from '../components/templates/list-template/list-template'
+import spotifyService from 'services/spotify'
+import spotifyConstants from 'constants/spotify-url'
+import stringConstans from 'constants/string-constants'
+import ListTemplate from 'components/templates/list-template/list-template'
 
 const Albums = () => {
     const [yourAlbums, setYourAlbums] = useState(null)

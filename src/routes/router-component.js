@@ -2,10 +2,10 @@ import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import PublicRoute from './public-route'
 import PrivateRoute from './private-route'
-import Login from '../pages/login'
-import Home from '../pages/home'
-import Albums from '../pages/albums'
-import Favorites from '../pages/favorites'
+import Login from 'pages/login'
+import Home from 'pages/home'
+import Albums from 'pages/albums'
+import Favorites from 'pages/favorites'
 
 const RouterComponent = () => {
     return (

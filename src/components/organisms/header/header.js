@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 
-import { ReactComponent as MusicIcon } from '../../../assets/icons/music-solid.svg'
-import { ReactComponent as MenuBarIcon } from '../../../assets/icons/bars-solid.svg'
-import { ReactComponent as XMarkIcon } from '../../../assets/icons/xmark-solid.svg'
-import { ReactComponent as LogoutIcon } from '../../../assets/icons/right-from-bracket-solid.svg'
+import { ReactComponent as MusicIcon } from 'assets/icons/music-solid.svg'
+import { ReactComponent as MenuBarIcon } from 'assets/icons/bars-solid.svg'
+import { ReactComponent as XMarkIcon } from 'assets/icons/xmark-solid.svg'
+import { ReactComponent as LogoutIcon } from 'assets/icons/right-from-bracket-solid.svg'
 
-import stringConstans from '../../../constants/string-constants'
+import stringConstans from 'constants/string-constants'
 
-import MenuNav from '../../molecules/menu-nav/menu-nav'
+import MenuNav from 'components/molecules/menu-nav/menu-nav'
 
 import './header.scss'
 
@@ -60,12 +60,14 @@ const Header = ({ userName }) => {
                         onClick={toggleMenu}
                         className="menu-column__close-menu"
                     />
-                    <LogoutIcon className="menu-column__logout" onClick={Logout} />
+                    <LogoutIcon
+                        className="menu-column__logout"
+                        onClick={Logout}
+                    />
                     <h3 className="menu-column__user-name">{userName}</h3>
                     <nav className="menu-column__nav">
                         <MenuNav isColumn={true} menuOptions={menuOptions} />
                     </nav>
-                    
                 </aside>
             )}
         </>

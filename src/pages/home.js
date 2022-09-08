@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import spotifyService from '../services/spotify'
-import stringConstans from '../constants/string-constants'
-import spotifyConstants from '../constants/spotify-url'
-import ListTemplate from '../components/templates/list-template/list-template'
+import spotifyService from 'services/spotify'
+import stringConstans from 'constants/string-constants'
+import spotifyConstants from 'constants/spotify-url'
+import ListTemplate from 'components/templates/list-template/list-template'
 
 const Home = () => {
     const [userName, setuserName] = useState(localStorage.getItem('USER_NAME'))
@@ -12,14 +12,16 @@ const Home = () => {
     useEffect(() => {
         window.location.hash && setAccessToken()
         !userName && getUserName()
-        !recentlyPlayed && getRecentlyPlayed(spotifyConstants.RECENTLY_PLAYED_URL)
-        
-        const RecentlyPlayedIds =
-            recentlyPlayed?.map(song => {
-                return song.track.id
-            })
+        !recentlyPlayed &&
+            getRecentlyPlayed(spotifyConstants.RECENTLY_PLAYED_URL)
+
+        const RecentlyPlayedIds = recentlyPlayed?.map(song => {
+            return song.track.id
+        })
         spotifyService
-            .getTrackAlbumOrUserData(`${spotifyConstants.SONG_LIKEDS_URL}${RecentlyPlayedIds}`)
+            .getTrackAlbumOrUserData(
+                `${spotifyConstants.SONG_LIKEDS_URL}${RecentlyPlayedIds}`
+            )
             .then(response => {
                 setLikedSongs(response?.data)
             })

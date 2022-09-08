@@ -1,4 +1,4 @@
-import { API_URL, HEADERS } from '../constants/api-constants'
+import { API_URL, HEADERS } from 'constants/api-constants'
 import axios from 'axios'
 
 axios.interceptors.request.use(request => {
